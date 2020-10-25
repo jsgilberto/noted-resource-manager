@@ -3,16 +3,21 @@ version: '2'
 services:
   postgres:
     image: postgres:11.6
+    env_file: 
+      - db.env
   web:
     restart: always
+    env_file: 
+      - db.env
     environment:
       - DJANGO_SECRET_KEY=local
     image: web
     build: ./
     command: >
       bash -c "python wait_for_postgres.py &&
-               ./manage.py migrate &&
-               ./manage.py runserver 0.0.0.0:8000"
+               python ./manage.py makemigrations &&
+               python ./manage.py migrate &&
+               python ./manage.py runserver 0.0.0.0:8000"
     volumes:
       - ./:/code
     ports:
