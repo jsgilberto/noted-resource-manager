@@ -21,3 +21,9 @@ Run a command inside the docker container:
 ```bash
 docker-compose run --rm web [command]
 ```
+
+
+This resource manager is used to normalize the API calls from the front end. For example, if one of the APIs version change, we only have to change
+logic inside the resource manager and never on the front end.
+
+It also serves as the entrypoint for all the remaining resources, being the only service exposed to the public.

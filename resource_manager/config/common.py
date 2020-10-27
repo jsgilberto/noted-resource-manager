@@ -24,6 +24,7 @@ class Common(Configuration):
 
         # Your apps
         # 'resource_manager.users',
+        'resource_manager.resources',
 
     )
 
