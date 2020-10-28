@@ -11,5 +11,4 @@ urlpatterns = [
     # User authentication
     path('token/', views.retrieve_token),
     path('token/refresh/', views.refresh_token),
-    # path('token/verify/', views.verify_token),
 ]
