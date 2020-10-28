@@ -4,14 +4,15 @@ services:
   postgres:
     image: postgres:11.6
     env_file: 
-      - db.env
-  web:
+      - ./env/db.env
+  resource_manager:
     restart: always
     env_file: 
-      - db.env
+      - ./env/db.env
+      - ./env/services.env
     environment:
       - DJANGO_SECRET_KEY=local
-    image: web
+    image: resource_manager
     build: ./
     command: >
       bash -c "python wait_for_postgres.py &&
@@ -24,6 +25,8 @@ services:
       - "8000:8000"
     depends_on:
       - postgres
+    # networks:
+    #   - custom-net
   documentation:
     restart: always
     build: ./
@@ -32,3 +35,7 @@ services:
       - ./:/code
     ports:
       - "8001:8001"
+
+# networks: 
+#   custom-net:
+#     driver: bridge

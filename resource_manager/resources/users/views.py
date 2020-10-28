@@ -1,6 +1,8 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-import requests
+from resource_manager.resources.endpoints.utils import (
+    Service
+)
 
 """
     User management:
@@ -10,21 +12,27 @@ import requests
 def users_create(request):
     """ Resource for creating users
     """
-    return Response({})
+    s = Service('users', 'users_create')
+    response = s.make_request(request)
+    return response
 
 
 @api_view(['GET'])
 def users_get(request, id):
     """ Resource for getting user info
     """
-    return Response({})
+    s = Service('users', 'users_get')
+    response = s.make_request(request, path_params={'user_id': id})
+    return response
 
 
 @api_view(['PUT', 'PATCH'])
 def users_edit(request, id):
     """ Resource for editing a user
     """
-    return Response({})
+    s = Service('users', 'users_edit')
+    response = s.make_request(request, path_params={'user_id': id})
+    return response
 
 
 
@@ -36,18 +44,16 @@ def users_edit(request, id):
 def retrieve_token(request):
     """ Resource for issuing a token for a registered user
     """
-    return Response({})
+    s = Service('users', 'retrieve_token')
+    response = s.make_request(request)
+    return response
 
 
 @api_view(['POST'])
 def refresh_token(request):
     """ Resource for refreshing a token
     """
-    return Response({})
+    s = Service('users', 'refresh_token')
+    response = s.make_request(request)
+    return response
 
-
-# @api_view(["POST"])
-# def verify_token(request):
-#     """ Resource used to verify a given token
-#     """
-#     return Response({})
