@@ -8,6 +8,8 @@ import os
 class Service:
     """ Request transactions
     """
+    USERS = 'users'
+    DOCUMENTS = 'documents'
 
     def __init__(self, service, endpoint):
         """ Instance init
@@ -76,4 +78,9 @@ class Service:
             return response
         
         elif method == 'DELETE':
-            raise "Error: Method not implemented"
+            try:
+                response = requests.delete(url, headers=headers)
+                response = Response(response.json(), status=response.status_code)
+            except:
+                response = Response({"error": "Internal server error"}, status=500)
+            return response

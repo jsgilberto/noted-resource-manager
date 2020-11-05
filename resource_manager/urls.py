@@ -9,6 +9,7 @@ from rest_framework.routers import DefaultRouter
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('resource_manager.resources.users.urls')),
+    path('api/', include('resource_manager.resources.documents.urls')),
 
     # the 'api-root' from django rest-frameworks default router
     # http://www.django-rest-framework.org/api-guide/routers/#defaultrouter

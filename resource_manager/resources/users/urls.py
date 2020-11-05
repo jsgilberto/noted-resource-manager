@@ -1,6 +1,6 @@
 from django.urls import path
-
 from resource_manager.resources.users import views
+
 
 urlpatterns = [
     # User management
