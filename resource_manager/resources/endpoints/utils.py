@@ -1,5 +1,6 @@
 from rest_framework.response import Response
 from resource_manager.resources.endpoints.users import USERS_SERVICE_ENDPOINT
+from resource_manager.resources.endpoints.documents import DOCUMENTS_SERVICE_ENDPOINT
 import requests
 import json
 import os
@@ -17,7 +18,10 @@ class Service:
         assert service == 'users' or service == 'documents'
 
         self._service = service
-        self._endpoint = USERS_SERVICE_ENDPOINT[endpoint]
+        if service == 'users':
+            self._endpoint = USERS_SERVICE_ENDPOINT[endpoint]
+        elif service == 'documents':
+            self._endpoint = DOCUMENTS_SERVICE_ENDPOINT[endpoint]
     
 
     def _create_url(self, path_params=None):

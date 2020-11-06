@@ -1,7 +1,7 @@
 """ Endpoints for documents service
 """
 
-USERS_SERVICE_ENDPOINT = {
+DOCUMENTS_SERVICE_ENDPOINT = {
     # Documents service endpoints
     'documents_list': '/api/v1/documents/',
     'documents_create': '/api/v1/documents/',
