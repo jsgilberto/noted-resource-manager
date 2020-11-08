@@ -3,7 +3,12 @@
 [![Build Status](https://travis-ci.org/jsgilberto/noted-resource-manager.svg?branch=master)](https://travis-ci.org/jsgilberto/noted-resource-manager)
 [![Built with](https://img.shields.io/badge/Built_with-Cookiecutter_Django_Rest-F7B633.svg)](https://github.com/agconti/cookiecutter-django-rest)
 
-A resource manager for the noted app. Check out the project's [documentation](http://jsgilberto.github.io/noted-resource-manager/).
+A resource manager for the noted app. This service is similar to what an API Gateway would do, it acts as the front door of the remaining services (users and documents). The intention here is that this service decides which services are available in the background and selects which endpoints from these services are available for the public. It means that there are public endpoints and private endpoints. Public endpoints are available to use from the resource manager service but on the other hand, private endpoints are only available to use from other internal services.
+
+### How does it work
+All requests for public endpoints are tunneled to the requested resource. For instance, if you would like to authenticate in the front end, you would have to use the users service, but the clients only have acces to the users service through the resource manager service.
+
+<img src="images/noted-resource-manager.png" />
 
 # Prerequisites
 
