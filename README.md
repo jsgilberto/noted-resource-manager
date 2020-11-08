@@ -60,7 +60,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Jesus Alvarez - in/alvarezjesus - alv.mtz94@gmail.com
 
-Project link: https://github.com/jsgilberto/noted-users-service
+Project link: https://github.com/jsgilberto/noted-resource-manager
 
 ## Acknowledgements
 
